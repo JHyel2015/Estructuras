@@ -64,11 +64,5 @@ public abstract class Persona{
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
-	@Override
-	public String toString() {
-		return "Persona [id=" + id + ", nombre1=" + nombre1 + ", nombre2="
-				+ nombre2 + ", apellido1=" + apellido1 + ", apellido2="
-				+ apellido2 + ", edad=" + edad + "]";
-	}
-	
+	public abstract String toString();
 }
