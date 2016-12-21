@@ -6,3 +6,6 @@
  *
  */
 package CorreccionPrueba;
+public class Persona{
+	
+}
