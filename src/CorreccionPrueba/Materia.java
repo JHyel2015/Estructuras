@@ -5,14 +5,6 @@ import java.util.Arrays;
 
 public class Materia {
 
-	public Profesor[] getProfesores() {
-		return profesores;
-	}
-
-	public void setProfesores(Profesor[] profesores) {
-		this.profesores = profesores;
-	}
-
 	private String codigo;
 	private String nombre;
 	private int numHoras;
@@ -22,15 +14,22 @@ public class Materia {
 	private Profesor [] profesores;
 
 	public Materia() {
+		super();
 		// TODO Auto-generated constructor stub
-		this.codigo ="0";
+		/*this.codigo ="0";
 		this.nombre="materia1";
 		this.numHoras=2;
 		this.profesores=new Profesor[] {new Profesor(),new Profesor()};
-		this.alumnos=new Alumno[] {new Alumno(),new Alumno()};		
+		this.alumnos=new Alumno[] {new Alumno(),new Alumno()};	*/	
 	}
-	
-
+	public Materia(String codigo, String nombre, int numHoras, Alumno[] alumnos, Profesor[] profesores) {
+		super();
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.numHoras = numHoras;
+		this.alumnos = alumnos;
+		this.profesores = profesores;
+	}
 	public String getCodigo() {
 		return codigo;
 	}
@@ -62,24 +61,46 @@ public class Materia {
 	public void setAlumnos(Alumno[] alumnos) {
 		this.alumnos = alumnos;
 	}
-	
+	public Profesor[] getProfesores() {
+		return profesores;
+	}
+
+	public void setProfesores(Profesor[] profesores) {
+		this.profesores = profesores;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Materia [codigo=" + codigo + ", nombre=" + nombre
-				+ ", numHoras=" + numHoras + ", alumnos="
-				+ Arrays.toString(alumnos) + ", profesores="
-				+ Arrays.toString(profesores) + "]";
-	}
-	
-	public Profesor[]buscarProfesores(String idProfesor){
-		for(Profesor p:profesores){
-			if(p.getId().equals(idProfesor)){
-				return
+		String to =codigo + "\t\t" + nombre
+				+ "\t" + numHoras + "\n\nAlumnos\t\tProfesores\n";
+		for(int i=0;i<alumnos.length;i++){
+			for(int j=0;j<profesores.length;j++){
+				if(i==j)
+					to+=alumnos[i].getApellido1()+"\t\t"+profesores[j].getApellido1()+"\n";
 			}
 		}
+		return to;
 	}
-	
 
-	
-	
+	public Profesor buscarProfesores(String profesor){
+		for(Profesor p: profesores){
+			if(p.getId().compareToIgnoreCase(profesor)==0||p.getNombre1().compareToIgnoreCase(profesor)==0){
+				return p;
+			}
+		}
+		return new Profesor();
+	}
+	public Alumno buscarAlumnos(String alumno){
+		for(Alumno a: alumnos){
+			if(a.getId().compareToIgnoreCase(alumno)==0||a.getNombre1().compareToIgnoreCase(alumno)==0){
+				return a;
+			}
+		}
+		return new Alumno();
+	}
+
+
+
+
 }
