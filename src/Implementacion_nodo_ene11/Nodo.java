@@ -27,4 +27,8 @@ public class Nodo {
 	public void setNext( Nodo newNext) {
 		next=newNext;
 	}
+	@Override
+	public String toString() {
+		return element + "\n" + next;
+	}
 }
