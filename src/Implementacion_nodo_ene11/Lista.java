@@ -68,20 +68,56 @@ public class Lista {
 			size--;			
 		}
 	}
+	public void remove(int x){
+		Nodo temp1;
+		long k=size;
+		temp1=head;
+		if(size==0 || x>size){
+			return;
+		}else{
+			for(int i=0;i<k;i++){
+				if(x!=i)
+					this.addLast(temp1);
+				temp1=temp1.getNext();
+			}
+		}		
+	}
 	public void insertar(Nodo nod,int x){
 		Nodo temp1,temp2;
-		if(size==0 || x>size){
+		long k=size;
+		temp1=head;
+		if(size==0 || x>size || x==0){
 			this.addLast(nod);
 		}else{
-			temp1=head;
-			for(int i=0;i<size;i++){
-				if(x==i){
-					nod.setNext(temp1);
-					temp1.setNext(nod);
-				}
+			temp2=temp1;
+			temp2.setNext(null);
+			this.addFirst(temp2);
+			for(long i=1;i<k;i++){
 				temp1=temp1.getNext();
+				if(x!=i)
+					this.addLast(temp1);
+				else
+					this.addLast(nod);
 			}
 		}
 	}
-
+	public Nodo buscar(String strBusqueda){
+		Nodo temp1;
+		if(this.esVacia()==true)
+			return null;
+		else{
+			temp1=head;
+			for(long i=0;i<size;i++){
+				if(strBusqueda.compareToIgnoreCase(temp1.getElement())==0){
+					return temp1;
+				}
+				temp1=temp1.getNext();
+			}
+			return null;
+		}
+	}
+	public void vaciar(){
+		head = null;
+		size = 0;
+	}
 }
