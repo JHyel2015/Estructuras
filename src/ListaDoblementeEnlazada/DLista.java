@@ -45,8 +45,6 @@ public class DLista {
 		DNodo nodo= new DNodo(null, String.valueOf(dato), null),last,prevLast;
 		if(esVacia()==true){
 			this.head =nodo;
-			this.size=0;
-			return;
 		}else{
 			last=getTail();
 			last.setNext(nodo);
@@ -54,8 +52,8 @@ public class DLista {
 			//nodo.setNext(null);
 			//this.tail=nodo;
 			this.tail=nodo;
-			this.size++;
 		}
+		this.size++;
 	}
 	public void removeFirst(){
 		if(esVacia()!=true){
@@ -79,9 +77,36 @@ public class DLista {
 		if(nodo!=null){
 			prev=nodo.getPrev();
 			next=nodo.getNext();
-			prev.setNext(next);
-			next.setPrev(prev);
-			this.size--;
+			if(prev==null)
+				removeFirst();
+			else{
+				prev.setNext(next);
+				next.setPrev(prev);
+				this.size--;
+			}
+		}
+	}
+	public void removeX(int x){
+		DNodo aux,next,prev;
+		if(esVacia()!=true){
+			if(x==0)
+				removeFirst();
+			else if(x==getSize()-1)
+				removeLast();
+			else{
+				aux=getHead();
+				for(int i =0;i<getSize();i++){
+					if(i==x){
+						next=aux.getNext();
+						prev=aux.getPrev();
+						prev.setNext(next);
+						next.setPrev(prev);
+						this.size--;
+						break;
+					}
+					aux=aux.getNext();
+				}
+			}
 		}
 	}
 	public DNodo buscar(Object dato){
@@ -117,9 +142,11 @@ public class DLista {
 	}
 	public void insertar(Object dato,int x){
 		DNodo nodo= new DNodo(null, String.valueOf(dato), null),aux,prev;
-		if(esVacia()!=true){
-			if(getSize()==x)
-				removeFirst();
+		if(esVacia()!=true&&x<getSize()){
+			if(x==0)
+				addFirst(nodo);
+			else if(x>getSize())
+				addLast(nodo);
 			else{
 				aux=getHead().getNext();
 				for(int i=1;i<getSize();i++){
@@ -144,5 +171,8 @@ public class DLista {
 	@Override
 	public String toString() {
 		return "" + head;
+	}
+	public String toString1() {
+		return "" + tail.toString1();
 	}
 }
