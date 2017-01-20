@@ -34,5 +34,11 @@ public class DNodo {
 		else
 			return elemento;
 	}
+	public String toString1() {
+		if(prev!=null)
+			return elemento +"\n"+ prev.toString1();
+		else
+			return elemento;
+	}
 
 }
