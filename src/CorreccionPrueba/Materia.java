@@ -1,8 +1,5 @@
 package CorreccionPrueba;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class Materia {
 
 	private String codigo;

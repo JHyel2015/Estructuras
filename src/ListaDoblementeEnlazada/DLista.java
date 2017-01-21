@@ -30,7 +30,7 @@ public class DLista {
 		return tail;
 	}
 	public void addFirst(Object dato){
-		DNodo nodo=new DNodo(null, String.valueOf(dato), null),aux;
+		DNodo nodo=new DNodo(null, String.valueOf(dato), null);
 		if(esVacia()==true){
 			this.head=nodo;
 			this.tail=nodo;
@@ -42,7 +42,7 @@ public class DLista {
 		this.size++;
 	}
 	public void addLast(Object dato){
-		DNodo nodo= new DNodo(null, String.valueOf(dato), null),last,prevLast;
+		DNodo nodo= new DNodo(null, String.valueOf(dato), null),last;
 		if(esVacia()==true){
 			this.head =nodo;
 		}else{
@@ -111,7 +111,7 @@ public class DLista {
 	}
 	public DNodo buscar(Object dato){
 		String busqueda=String.valueOf(dato);
-		DNodo nodo=new DNodo(null, busqueda, null),aux;
+		DNodo aux;
 		if(esVacia()==true){
 			return null;
 		}else{

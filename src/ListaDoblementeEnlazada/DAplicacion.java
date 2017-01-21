@@ -63,6 +63,7 @@ public class DAplicacion {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		@SuppressWarnings("unused")
 		DAplicacion app = new DAplicacion();
 
 	}
