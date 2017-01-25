@@ -142,7 +142,7 @@ public class DLista {
 	}
 	public void insertar(Object dato,int x){
 		DNodo nodo= new DNodo(null, String.valueOf(dato), null),aux,prev;
-		if(esVacia()!=true&&x<getSize()){
+		if(esVacia()!=true){
 			if(x==0)
 				addFirst(nodo);
 			else if(x>getSize())
