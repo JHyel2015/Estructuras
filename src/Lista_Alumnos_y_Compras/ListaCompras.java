@@ -26,7 +26,7 @@ public class ListaCompras {
 		this.size = size;
 	}
 	public void add(Compras v){
-		Nodo newNodo = new Nodo(v, null),tail,busqueda;
+		Nodo newNodo = new Nodo(v, null),tail;
 		newNodo.setNext(null);
 		if(this.esVacia()==true){
 			this.head=newNodo;
