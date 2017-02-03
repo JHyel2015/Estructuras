@@ -16,7 +16,7 @@ public class Compras {
 		super();
 		this.nombre = nombre;
 		this.cantidad = cantidad;
-		if(estaListo.compareToIgnoreCase("listo")==0)
+		if(estaListo.compareToIgnoreCase("listo")==0&&getCantidad()!=0)
 			this.listo = true;
 		else
 			this.listo=false;
