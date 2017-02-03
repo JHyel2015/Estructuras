@@ -103,9 +103,9 @@ public class ListaCompras {
 		Nodo nod=getHead();
 		Compras comp;
 		String strPrin="";
-		while(nod.getNext()!=null){
+		while(nod!=null){
 			comp=(Compras)nod.getElemento();
-			if(comp.isListo()!=true)
+			if(comp.isListo()!=true || comp.getCantidad()==0)
 				strPrin+=""+comp+"\n";
 			nod=nod.getNext();				
 		}
